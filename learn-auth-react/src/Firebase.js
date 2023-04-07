@@ -19,10 +19,16 @@ export const auth = getAuth(app);
 //gmail
 const provider = new GoogleAuthProvider()
 
+// export const signInWithGoogle = () => signInWithPopup(auth, provider) 
+
 export const signInWithGoogle = () =>{
     signInWithPopup(auth, provider)
         .then((result) => {
             console.log(result)
+            // const credential = provider.credentialFromResult(result)
+            const idToken = result._tokenResponse.idToken
+            console.log(idToken)
+
             const name = result.user.displayName;
             const email = result.user.email;
             const  profilePic = result.user.photoURL;
@@ -30,6 +36,8 @@ export const signInWithGoogle = () =>{
             localStorage.setItem("name", name)
             localStorage.setItem("email", email)
             localStorage.setItem("profilePic", profilePic)
+            // probably bad 
+            localStorage.setItem('googleIdToken', idToken)
         })
         .catch((error) => {
             console.log(error)

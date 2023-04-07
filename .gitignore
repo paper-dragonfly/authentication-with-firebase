@@ -1,0 +1,5 @@
+learn_auth_api/.venv_learnauth/
+*.pyc 
+learn-auth-0423-firebase-adminsdk-v5off-d16c64fa8f.json
+.DS_Store
+# NOTE: git ignore for react node_moduels is inside learn-auth-react
