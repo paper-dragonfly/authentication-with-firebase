@@ -21,6 +21,9 @@ function App() {
         }
         console.log('Health', data)
       })
+      .catch(error => {
+        console.error(error)
+        setHealth(false)})
   }
 
   function signIn(){
