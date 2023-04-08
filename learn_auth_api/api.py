@@ -50,7 +50,7 @@ firebase_admin.initialize_app(cred)
 # API Endpoints
 @app.get("/health/")
 def read_health():
-    return {"API status": HTTPStatus.OK}
+    return Response(status_code=HTTPStatus.OK)
 
 @app.get("/login/")
 def read_login(authorization: str  = Header(...)):

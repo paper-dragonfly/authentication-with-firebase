@@ -95,3 +95,11 @@ body {
 .showUserToken{
   background: cyan
 }
+
+.btn-success{
+  background-color: lightgreen;
+}
+
+.btn-danger{
+  background-color: red;
+}
