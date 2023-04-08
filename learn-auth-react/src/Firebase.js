@@ -27,17 +27,10 @@ export const signInWithGoogle = () =>{
             console.log(result)
             // const credential = provider.credentialFromResult(result)
             const idToken = result._tokenResponse.idToken
-            console.log(idToken)
-
             const name = result.user.displayName;
-            const email = result.user.email;
-            const  profilePic = result.user.photoURL;
-
-            localStorage.setItem("name", name)
-            localStorage.setItem("email", email)
-            localStorage.setItem("profilePic", profilePic)
-            // probably bad 
+            // possibly bad security practice to save idToken to localstorage
             localStorage.setItem('googleIdToken', idToken)
+            localStorage.setItem("name", name)
         })
         .catch((error) => {
             console.log(error)

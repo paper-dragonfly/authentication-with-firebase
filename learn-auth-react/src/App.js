@@ -2,23 +2,23 @@ import './App.css';
 import { signInWithGoogle } from './Firebase';
 import {useState} from 'react';
 
+const API_URL = 'http://127.0.0.1:8000'
 
 function App() {
-  const [todos, setTodos] = useState("")
+  const [userToken, setUserToken] = useState("")
+  const [userEmail, setUserEmail] = useState("")
 
   function checkHealth(){
-    const url = 'http://127.0.0.1:8001/health/'
+    const url = API_URL+'/health/'
     fetch(url)
       .then((response) => response.json) 
       .then(data => console.log(data))
   }
 
-
-
-  function getTodos(){
-    const url = 'http://127.0.0.1:8001/todo/'
-    //  Storingin local storage is probably bad
-    const idToken = localStorage.getItem['googleIdToken']
+  function signIn(){
+    signInWithGoogle()
+    const url = API_URL+'/login/'
+    const idToken = localStorage.googleIdToken
     fetch(
       url, 
       {headers: {
@@ -27,10 +27,32 @@ function App() {
       }
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        setUserToken(data["body"]["user_token"])
+      })
       .catch(error => console.error(error)) 
 
-    setTodos('hit getTodos') 
+    setUserToken() 
+  }
+
+  function getEmail(){
+    const url = API_URL+'/email/'
+    fetch(
+      url,
+      {headers: 
+        {
+        'Authorization': `Bearer ${userToken}`,
+        'Content-Type': 'application/json'
+        }
+      }
+    )
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setUserEmail(data["body"]["user_email"])
+      })
+
   }
 
   return (
@@ -38,12 +60,13 @@ function App() {
         <h1> Hello World</h1>
         <button onClick = {checkHealth}>Check Health</button>
         <br />
-        <button className= "login-with-google-btn"  onClick={signInWithGoogle}>sign in with google</button>
+        <button className= "login-with-google-btn"  onClick={signIn}>sign in with google</button>
         <h2>{localStorage.getItem("name")}</h2>
-        <button onClick = {getTodos}>Get Todos</button>
-        <p className = 'todos'>
-          Todos {todos}
+        <p className = 'showUserToken'>
+          User  Token {userToken}
         </p>
+        <button onClick={getEmail}> Get Email</button>
+        <h4>User Email {userEmail}</h4>
       </div>
   );
 }
