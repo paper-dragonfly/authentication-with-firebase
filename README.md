@@ -9,14 +9,10 @@ Flow chart: Authentication Chain
 ![Authentication Flow Chart](./auth_flow.svg)
 
 App when signed out
-
-<!-- ![signed out](./auth_signedOut.png) -->
-<img src="./auth_signedOut.png" alt="app when signed out" width="200" height="200">
+<img src="./auth_signedOut.png" alt="app when signed out" width="500" >
 
 App when API connection checked and active, user logged in, email requested
-<img src="./auth_signedIn.png" alt="app when signed in" width="200" height="200">
-
-<!-- ![signed In](./auth_signedIn.png) -->
+<img src="./auth_signedIn.png" alt="app when signed in" width="500">
 
 ## Commands to Run Web App
 
