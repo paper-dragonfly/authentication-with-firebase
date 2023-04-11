@@ -10,11 +10,11 @@ This web application generates encrypted session tokens within the FastAPI serve
 
 #### App when signed out
 
-<img src="./auth_signedOut.png" alt="app when signed out" width="30%" >
+<img src="./auth_signedOut.png" alt="app when signed out" width="50%" >
 
 #### App when API connection checked and active, user logged in, email requested
 
-<img src="./auth_signedIn.png" alt="app when signed in" width="30%">
+<img src="./auth_signedIn.png" alt="app when signed in" width="50%">
 
 ## Commands to Run Web App
 
