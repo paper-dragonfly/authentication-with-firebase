@@ -92,14 +92,18 @@ body {
 
 /* KATHLEENS CSS */
 
-.showUserToken{
-  background: cyan
-}
+/* .showUserToken{
+  display: flex;
+  justify-content: center;
+  
+} */
 
 .btn-success{
   background-color: lightgreen;
+  margin-bottom: 15px;
 }
 
 .btn-danger{
   background-color: red;
+  margin-bottom: 15px;
 }

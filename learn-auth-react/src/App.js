@@ -90,11 +90,12 @@ function App() {
         <button className = {health?'btn-success':'btn-danger'} onClick = {checkHealth}>Check API Connection</button>
         <br />
         <button className= "login-with-google-btn"  onClick={signIn}>sign in with google</button>
-        <p className = 'showUserToken'>
-          User  Token
-          <br />
-          {userToken.substring(0,25)}
-        </p>
+        <div className = 'showUserToken'>
+          <h4> User Token </h4>
+          <p>
+            {userToken?userToken.substring(0,25)+'...':'no user logged in'}
+          </p>
+        </div>
         <button onClick={getEmail}> Get Email</button>
         <h4>User Email <br  /> {userEmail?userEmail : "_______"}</h4>
         <button onClick={signOut}>Sign Out</button>
