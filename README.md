@@ -4,6 +4,10 @@ This is a simple web app with a React client and FastAPI server that uses Fireba
 
 This web application generates encrypted session tokens within the FastAPI server. This eliminates the need to authenticate API requests with Firebase or a related database when those requests are coming from a user who is logged in.
 
+Here is a flow chart showing the authentication chain
+
+![Authentication Flow Chart](./auth_flow.svg)
+
 ## Commands to Run Web App
 
 React client: `npm start`

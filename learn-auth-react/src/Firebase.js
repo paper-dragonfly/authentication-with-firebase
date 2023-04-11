@@ -20,36 +20,37 @@ export const auth = getAuth(app);
 //gmail
 const provider = new GoogleAuthProvider()
 
-// export const signInWithGoogle = () => signInWithPopup(auth, provider) 
+export const signInWithGoogle = () => signInWithPopup(auth, provider) 
 
-export const signInWithGoogle = () =>{
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            console.log(result)
-            // const credential = provider.credentialFromResult(result)
-            debugger
-            const idToken = result._tokenResponse.idToken
-            const name = result.user.displayName
-            // possibly bad security practice to save idToken to localstorage
-            localStorage.setItem('googleIdToken', idToken)
-            localStorage.setItem("name", name)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-}
+// export const signInWithGoogle = () =>{
+//     signInWithPopup(auth, provider)
+//         .then((result) => {
+//             console.log(result)
+//             const idToken = result._tokenResponse.idToken
+//             const name = result.user.displayName
+//             // bad security practice to save idToken to localstorage?
+//             localStorage.setItem('googleIdToken', idToken)
+//             localStorage.setItem("name", name)
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+// }
 
-export const firebaseSignOut = () =>  {
-    signOut(auth).then(() => {
-        // Sign-out successful.
-        console.log('sign out successful')
-        localStorage.removeItem('googleIdToken')
-        localStorage.removeItem('name')
-        localStorage.removeItem('email')
+// export const singInWithGoogle = signInWithPopup(auth, provider) 
+
+export const firebaseSignOut =  () => signOut(auth)
+// export const firebaseSignOut = () =>  {
+//     signOut(auth).then(() => {
+//         // Sign-out successful.
+//         console.log('sign out successful')
+//         localStorage.removeItem('googleIdToken')
+//         localStorage.removeItem('name')
+//         localStorage.removeItem('email')
         
 
-      }).catch((error) => {
-        // An error happened.
-        console.error(error)
-      });
-    }
+//       }).catch((error) => {
+//         // An error happened.
+//         console.error(error)
+//       });
+//     }

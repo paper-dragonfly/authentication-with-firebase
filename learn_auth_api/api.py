@@ -5,7 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from firebase_admin import credentials, auth
 import firebase_admin
 import pdb
-#For creating a 
+import time
+#For creating an encrypted token
 from cryptography.fernet import Fernet
 
 # Crete app
@@ -15,7 +16,7 @@ app = FastAPI()
 FAKE_DB = {
     'name': ['nico', 'liz', 'Kathleen Noble'], 
     'email':['nico@example.com', 'liz@example.come', 'k@example.com'], 
-    'user_id':['123moonshine', '321lizzkadoodle', '3aXlr46EU4fmv1yrv7ZIj1L8QMG2']
+    'user_id':['123moonshine', '321lizzkadoodle', '3aXlr46EU4fmv1yrv7ZIj1L8QMG2'] 
     }
 
 SECRET_STRING = 'hash_me_baby_one_more_time'
@@ -54,10 +55,14 @@ def read_health():
 
 @app.get("/login/")
 def read_login(authorization: str  = Header(...)):
-    # pdb.set_trace()
     id_token = authorization.split(" ")[1]
+    print('Auth val: ', authorization)
     try:
+        # added delay because I was getting an auth.InvalidIdTokenError "Token used too early" - could be my computer clock is slightly different to the firebase server
+        time.sleep(0.5)
+        # pdb.set_trace()
         decoded_token = auth.verify_id_token(id_token)
+        print('decoded token ', decoded_token)
         # token is valid
         user_id = decoded_token['uid']
         # check if user in db
@@ -71,7 +76,8 @@ def read_login(authorization: str  = Header(...)):
         # create personal hash token
         unencrypted_string = SECRET_STRING+"BREAK"+user_id
         encrypted_token = fernet.encrypt(unencrypted_string.encode())
-    except  auth.InvalidIdTokenError:
+    except  auth.InvalidIdTokenError as err:
+        print("Error: ",  str(err))
         #Token invalid
         return Response(status_code=400, error_message='Token invalid')
     except:
