@@ -7,8 +7,6 @@ const API_URL = 'http://127.0.0.1:8000'
 function App() {
   console.log('app rendered')
   const [health, setHealth] = useState(false)
-  // const [googleIdToken, setGoogleIdToken]  = useState(null)
-  // const [loggedIn, setLoggedIn] = useState(false)
   const [userToken, setUserToken] = useState("")
   const [userEmail, setUserEmail] = useState("")
   const [userName,  setUserName] = useState("")
@@ -71,7 +69,6 @@ function App() {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        // localStorage.setItem("userEmail", data["body"]["user_email"])
         setUserEmail(data["body"]["user_email"])
       })
 
@@ -99,7 +96,6 @@ function App() {
           {userToken.substring(0,25)}
         </p>
         <button onClick={getEmail}> Get Email</button>
-        {/* <h4>User Email <br  /> {localStorage.userEmail?localStorage.userEmail : "_______"}</h4> */}
         <h4>User Email <br  /> {userEmail?userEmail : "_______"}</h4>
         <button onClick={signOut}>Sign Out</button>
       </div>
