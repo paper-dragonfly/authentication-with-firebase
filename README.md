@@ -18,21 +18,21 @@ This web application generates encrypted session tokens within the FastAPI serve
 
 ## Commands to Run Web App
 
-React client: `npm start`
-FastAPI server: `uvicorn api:app`
-
-## Important Note
-
-There is no database associated with this authentication mini-project. Instead I use a dictionary called FAKE_DB in the API to mimic a database. For this reason new user's 'user_id' and associated information must be manually added to the FAKE_DB in order to use the 'Get Email' button.
+- React client: `npm start`
+- FastAPI server: `uvicorn api:app`
 
 ## What you can do
 
 - Check connection to API: click 'Check Health'
 - Log in: click "sign in with google"
   - your name should appear in the heading at the top
-  - the first 15 characters of your User Token will appear in the blue box
+  - the first 25 characters of your User Token will appear below the User Token heading
 - Get Email: click 'Get Email'
-  - email associated with logged in user will appear next to 'User Email' header (see important note above for caviat)
+  - email associated with logged in user will appear next to 'User Email' header (see important note below for caviat)
+
+## Important Note
+
+There is no database associated with this authentication mini-project. Instead I use a dictionary called FAKE_DB in the API to mimic a database. For this reason new user's 'user_id' and associated information must be manually added to the FAKE_DB in order to use the 'Get Email' button.
 
 ### Motivation + Helpful Resources
 

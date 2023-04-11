@@ -58,9 +58,9 @@ def read_login(authorization: str  = Header(...)):
     id_token = authorization.split(" ")[1]
     print('Auth val: ', authorization)
     try:
-        # added delay because I was getting an auth.InvalidIdTokenError "Token used too early" - could be my computer clock is slightly different to the firebase server
-        time.sleep(0.5)
-        # pdb.set_trace()
+        # added delay because I was getting an auth.InvalidIdTokenError "Token used too early" - could be my computer clock is slightly different to the firebase server.  
+        # Yes,  I know, this is a super hacky fix and there's probably a better solution but it works! 
+        time.sleep(0.1)
         decoded_token = auth.verify_id_token(id_token)
         print('decoded token ', decoded_token)
         # token is valid
