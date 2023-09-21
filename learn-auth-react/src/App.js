@@ -38,41 +38,6 @@ function App() {
   }
 
 
-  // function emailPasswordSignIn(){
-  //   if(newUser){
-  //     console.log('create new user with user and PW')
-  //     createUserWithEmailAndPassword(auth, userEmail, userPassword)
-  //       .then((userCredential) => {
-  //         setLoading(true)
-  //         // Signed in 
-  //         const user = userCredential.user;
-  //         console.log('userCred', userCredential)
-            
-  //       })
-  //       .catch((error) => {
-  //         setLoading(false)
-  //         const errorCode = error.code;
-  //         const errorMessage = error.message;
-  //         console.log(errorMessage)
-  //         // ..
-  //       })
-  //   }else{
-  //     console.log('signing in with user and PW')
-  //     signInWithEmailAndPassword(auth, userEmail, userPassword)
-  //       .then((userCredential) => {
-  //           console.log('login userCrred', userCredential)
-  //           // Signed in 
-  //           const user = userCredential.user;
-  //           // ...
-  //         })
-  //         .catch((error) => {
-  //           const errorCode = error.code;
-  //           const errorMessage = error.message;
-  //           console.log(errorMessage)
-  //         })
-  //     }
-  // }
-
   function emailPasswordSignIn() {
     const action = newUser ? 'create new user with user and PW' : 'signing in with user and PW';
   
@@ -227,7 +192,7 @@ function App() {
           </div> 
           : 
           <div>
-            <p>New to ergTrack? </p> <button onClick={handleClickNewUser}>Sign Up</button>
+            <p>New to this app? </p> <button onClick={handleClickNewUser}>Sign Up</button>
           </div>
         }
         
