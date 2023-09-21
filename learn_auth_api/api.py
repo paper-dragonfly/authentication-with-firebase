@@ -14,9 +14,9 @@ app = FastAPI()
 
 
 FAKE_DB = {
-    'name': ['nico', 'liz', 'Kathleen Noble'], 
-    'email':['nico@example.com', 'liz@example.come', 'k@example.com'], 
-    'user_id':['123moonshine', '321lizzkadoodle', '3aXlr46EU4fmv1yrv7ZIj1L8QMG2'] 
+    'name': ['nico', 'liz', 'Kathleen Noble', 'kat'], 
+    'email':['nico@example.com', 'liz@example.come', 'k@example.com', 'kat@example.com'], 
+    'user_id':['123moonshine', '321lizzkadoodle', '3aXlr46EU4fmv1yrv7ZIj1L8QMG2', '9KiwPexTflMfJmwTQOmYV0CImDw1'] 
     }
 
 SECRET_STRING = 'hash_me_baby_one_more_time'
