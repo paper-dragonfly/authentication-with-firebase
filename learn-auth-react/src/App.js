@@ -90,10 +90,6 @@ function App() {
     }
   }
 
-  // function submitForm(){
-  //   console.log('formsubmitting', userEmail, userPassword)
-  // }
-
   function handleClickNewUser(){
     setNewUser(!newUser)
   }
@@ -123,8 +119,8 @@ function App() {
           })
           .catch(error => console.error(error)) 
         
-      })
-  }
+      })}
+  
 
   function getEmail(){
     const url = API_URL+'/email/'
@@ -160,6 +156,7 @@ function App() {
         <h1> Hello {userName? userName: 'World'}</h1>
         <button className = {health?'btn-success':'btn-danger'} onClick = {checkHealth}>Check API Connection</button>
         <br />
+
         <h3>{newUser? "Sign Up" : "Log In"} </h3>
         <form onSubmit={handleSubmit(emailPasswordSignIn)} className = 'login-form'>
           <label>
@@ -170,6 +167,7 @@ function App() {
                   value ={userEmail}
                   onChange={handleChange}
                   className='form-login'
+                  required
               />
           </label>
           <br />
@@ -181,6 +179,7 @@ function App() {
                   value ={userPassword}
                   onChange={handleChange}
                   className='form-login'
+                  required
               />
           </label>
           <br />
@@ -200,7 +199,8 @@ function App() {
 
         <h3>OR</h3>
         <br />
-        <button className= "login-with-google-btn"  onClick={signIn}>sign in with google</button>
+        <button className= "loginBtn loginBtn--google"  onClick={signIn}>sign in with google</button>
+
         <div className = 'showUserToken'>
           <h4> User Token </h4>
           <p>
